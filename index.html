@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90-Day AI Data Engineering Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            height: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #4ade80;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .phase {
+            margin-bottom: 40px;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 30px;
+            background: #f9fafb;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .phase:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .phase-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .phase-title {
+            font-size: 1.8em;
+            color: #1f2937;
+        }
+
+        .phase-days {
+            margin-left: auto;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            color: #4b5563;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .task-list {
+            list-style: none;
+        }
+
+        .task-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .task-item:hover {
+            background: #f3f4f6;
+            transform: translateX(5px);
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+            border-left-color: #10b981;
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .deliverable {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            margin-top: 15px;
+        }
+
+        .deliverable .task-text {
+            font-weight: 600;
+        }
+
+        .salary-info {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .salary-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .salary-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .companies {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .companies h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .company-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company-tag {
+            background: #3b82f6;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .phase-title {
+                font-size: 1.4em;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 90-Day AI Data Engineering Roadmap</h1>
+            <p>Your Path to €75k-€110k in Germany</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- PHASE 1 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <div class="phase-title">PHASE 1: Core Data Engineering + Python</div>
+                    <div class="phase-days">Days 1-30</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">📚 Learn (in order):</div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Python for Data Engineering: Pandas, PySpark basics, Python scripts for ETL</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">SQL Deep Dive: Window functions, CTEs, Analytical queries</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Cloud Basics: AWS (S3, Lambda, Glue, IAM, EC2, Athena) or Azure/GCP</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Airflow or Prefect for orchestration</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">✅ Deliverables:</div>
+                    <ul class="task-list">
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Convert a simple ETL from Ruby → Python</span>
+                        </li>
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Build a pipeline: S3 → Glue/PySpark → Snowflake/Redshift (with data cleaning, partitioning, logging, job orchestration)</span>
+                        </li>
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="1">
+                            <span class="task-text">Push to GitHub</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <div class="phase-title">PHASE 2: AI / LLM Data Engineering</div>
+                    <div class="phase-days">Days 31-60</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">📚 Learn & Practice:</div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">Vector Databases: Pinecone, Weaviate, Chroma</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">Embeddings & LLM APIs: OpenAI embeddings, Llama embeddings, Text chunking & preprocessing</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">LangChain or LlamaIndex for RAG pipelines</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">✅ Deliverables:</div>
+                    <ul class="task-list">
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">Build RAG Search Pipeline: PDFs → chunk → embeddings → vector DB → LLM query API</span>
+                        </li>
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">Vector DB pipeline pulling data from S3 or Postgres</span>
+                        </li>
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="2">
+                            <span class="task-text">A data-cleaning LLM pipeline</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <div class="phase-title">PHASE 3: MLOps + AI Pipelines</div>
+                    <div class="phase-days">Days 61-90</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">📚 Learn:</div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">MLflow for model tracking</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Databricks (VERY valuable in Germany)</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Docker for containerization</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">CI/CD with GitHub Actions</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Feature Stores (Feast or Tecton)</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Model monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">✅ Deliverables:</div>
+                    <ul class="task-list">
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">End-to-End AI Data Pipeline: Ingest raw data → Clean + transform → Generate embeddings → Store in vector DB → Deploy RAG model → Track in MLflow</span>
+                        </li>
+                        <li class="task-item deliverable">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Post project on GitHub and LinkedIn</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">📝 Resume Updates:</div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Update Resume Title: "AI Data Engineer | Data Engineer | MLOps | LLM Pipelines"</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-phase="3">
+                            <span class="task-text">Add keywords: "RAG Pipelines", "Vector Databases", "ML Data Pipelines", "LLM-integrated ETL", "Data Engineering for Generative AI"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Salary Info -->
+            <div class="salary-info">
+                <h3>💰 Expected Salary in Germany</h3>
+                <div class="salary-item">
+                    <strong>Standard Data Engineer:</strong> €55,000 – €75,000
+                </div>
+                <div class="salary-item">
+                    <strong>AI / ML Data Engineer (Your Target):</strong> €75,000 – €110,000
+                </div>
+                <div class="salary-item">
+                    <strong>AI-focused Startups in NRW / Berlin:</strong> €85,000 – €125,000 (stock options common)
+                </div>
+                <div class="salary-item">
+                    <strong>Remote EU roles:</strong> €80,000 – €140,000
+                </div>
+            </div>
+
+            <!-- Target Companies -->
+            <div class="companies">
+                <h4>🎯 Target Companies in Germany</h4>
+                <div><strong>NRW (near Bonn):</strong></div>
+                <div class="company-list">
+                    <span class="company-tag">Deutsche Telekom</span>
+                    <span class="company-tag">DHL</span>
+                    <span class="company-tag">SAP</span>
+                    <span class="company-tag">Bayer</span>
+                    <span class="company-tag">Bosch</span>
+                    <span class="company-tag">Adesso</span>
+                    <span class="company-tag">Capgemini</span>
+                </div>
+                <div style="margin-top: 15px;"><strong>Berlin (AI hub):</strong></div>
+                <div class="company-list">
+                    <span class="company-tag">Merantix</span>
+                    <span class="company-tag">Nyris</span>
+                    <span class="company-tag">Babbel</span>
+                    <span class="company-tag">Zalando</span>
+                    <span class="company-tag">HelloFresh</span>
+                    <span class="company-tag">Delivery Hero</span>
+                </div>
+                <div style="margin-top: 15px;"><strong>Munich:</strong></div>
+                <div class="company-list">
+                    <span class="company-tag">BMW</span>
+                    <span class="company-tag">Siemens</span>
+                    <span class="company-tag">Allianz</span>
+                    <span class="company-tag">Celonis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load saved progress from localStorage
+        function loadProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem(checkbox.closest('.task-item').textContent.trim());
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                    checkbox.closest('.task-item').classList.add('completed');
+                }
+            });
+            updateProgress();
+        }
+
+        // Save progress to localStorage
+        function saveProgress(checkbox) {
+            const taskText = checkbox.closest('.task-item').textContent.trim();
+            localStorage.setItem(taskText, checkbox.checked);
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const total = checkboxes.length;
+            const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+            
+            const progressFill = document.getElementById('progressFill');
+            progressFill.style.width = percentage + '%';
+            progressFill.textContent = percentage + '%';
+        }
+
+        // Add event listeners to all checkboxes
+        document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const taskItem = this.closest('.task-item');
+                if (this.checked) {
+                    taskItem.classList.add('completed');
+                } else {
+                    taskItem.classList.remove('completed');
+                }
+                saveProgress(this);
+            });
+        });
+
+        // Initialize on page load
+        loadProgress();
+    </script>
+</body>
+</html>
