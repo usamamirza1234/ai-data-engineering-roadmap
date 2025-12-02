@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>90-Day AI Data Engineering Roadmap</title>
+    <title>90-Day AI Data Engineering Roadmap - Daily Plan</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -65,6 +65,30 @@
             font-weight: bold;
         }
 
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         .content {
             padding: 40px;
         }
@@ -103,20 +127,55 @@
             font-size: 1.5em;
             font-weight: bold;
             margin-right: 20px;
+            flex-shrink: 0;
         }
 
         .phase-title {
             font-size: 1.8em;
             color: #1f2937;
+            flex: 1;
         }
 
         .phase-days {
-            margin-left: auto;
             background: #667eea;
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .week {
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .week-header {
+            font-size: 1.4em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .day {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .day-header {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
 
         .section {
@@ -136,12 +195,12 @@
 
         .task-item {
             background: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
             border-left: 4px solid #667eea;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             transition: all 0.2s;
         }
 
@@ -160,16 +219,36 @@
         }
 
         .task-checkbox {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
             cursor: pointer;
             accent-color: #667eea;
+            flex-shrink: 0;
         }
 
         .task-text {
             flex: 1;
-            font-size: 1.05em;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .task-time {
+            color: #6b7280;
+            font-size: 0.85em;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+
+        .resource-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
         }
 
         .deliverable {
@@ -180,6 +259,19 @@
 
         .deliverable .task-text {
             font-weight: 600;
+        }
+
+        .project-box {
+            background: #dbeafe;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .project-box h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
         }
 
         .salary-info {
@@ -228,12 +320,27 @@
             font-size: 0.9em;
         }
 
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .tip-box strong {
+            color: #059669;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8em;
             }
             .phase-title {
                 font-size: 1.4em;
+            }
+            .phase-header {
+                flex-wrap: wrap;
             }
             .content {
                 padding: 20px;
@@ -245,9 +352,14 @@
     <div class="container">
         <div class="header">
             <h1>🚀 90-Day AI Data Engineering Roadmap</h1>
-            <p>Your Path to €75k-€110k in Germany</p>
+            <p>Your Path to €75k-€110k in Germany - Daily Study Plan</p>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="exportProgress()">📥 Export Progress</button>
+                <button class="btn" onclick="importProgress()">📤 Import Progress</button>
+                <button class="btn" onclick="resetProgress()">🔄 Reset All</button>
             </div>
         </div>
 
@@ -260,44 +372,443 @@
                     <div class="phase-days">Days 1-30</div>
                 </div>
 
-                <div class="section">
-                    <div class="section-title">📚 Learn (in order):</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Python for Data Engineering: Pandas, PySpark basics, Python scripts for ETL</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">SQL Deep Dive: Window functions, CTEs, Analytical queries</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Cloud Basics: AWS (S3, Lambda, Glue, IAM, EC2, Athena) or Azure/GCP</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Airflow or Prefect for orchestration</span>
-                        </li>
-                    </ul>
+                <div class="tip-box">
+                    <strong>💡 Goal:</strong> Transition from Ruby to Python and build solid data engineering foundations. By end of Phase 1, you'll have a production-ready ETL pipeline on GitHub.
                 </div>
 
-                <div class="section">
-                    <div class="section-title">✅ Deliverables:</div>
-                    <ul class="task-list">
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Convert a simple ETL from Ruby → Python</span>
-                        </li>
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Build a pipeline: S3 → Glue/PySpark → Snowflake/Redshift (with data cleaning, partitioning, logging, job orchestration)</span>
-                        </li>
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="1">
-                            <span class="task-text">Push to GitHub</span>
-                        </li>
-                    </ul>
+                <!-- WEEK 1 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 1: Python Fundamentals & Data Structures</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 1: Python Basics & Setup</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install Python 3.10+, VS Code, and set up virtual environment <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Python syntax basics: variables, data types, operators (compare with Ruby) <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: Lists, tuples, dictionaries, sets - <a href="https://www.youtube.com/watch?v=rfscVS0vtbw" class="resource-link">Python Tutorial</a> <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Solve 5 basic problems on HackerRank/LeetCode <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 2: Control Flow & Functions</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">If/else, loops (for, while), list comprehensions <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Functions: def, args, kwargs, lambda functions <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Error handling: try/except/finally <span class="task-time">(45 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Write 3 utility functions (data parsing, validation, transformation) <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 3: File I/O & Data Formats</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Reading/writing files: CSV, JSON, text files <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Working with pathlib for file paths <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: json, csv modules in depth <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Mini-project: Build a CSV to JSON converter with data validation <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 4-5: Pandas Fundamentals</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install pandas, numpy. Learn DataFrames & Series <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Reading data: read_csv, read_json, read_excel <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Data exploration: head, info, describe, shape, columns <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Selecting data: loc, iloc, boolean indexing <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Data cleaning: handling nulls, duplicates, data types <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Clean a messy dataset (Kaggle) - handle missing values, outliers <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 6-7: Advanced Pandas & Data Transformation</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">GroupBy operations: aggregations, transformations <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Merging & joining: merge, concat, join <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Pivot tables and reshaping data <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Apply, map, applymap for custom transformations <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Mini-project: Analyze sales data - aggregations, joins, pivot tables. Push to GitHub <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 2 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 2: SQL Mastery & Database Connections</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 8-9: Advanced SQL</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Review: SELECT, WHERE, JOIN, GROUP BY, HAVING <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Window functions: ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">CTEs (Common Table Expressions) and subqueries <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Analytical queries: running totals, moving averages <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Solve 10 SQL problems on LeetCode/HackerRank (Medium level) <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 10: Python + SQL Integration</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install PostgreSQL locally or use Docker <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: psycopg2 or SQLAlchemy for database connections <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Pandas + SQL: pd.read_sql, to_sql methods <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Load CSV to PostgreSQL, run queries, export results <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 11-12: PySpark Basics</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install PySpark, understand Spark architecture <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">SparkSession, DataFrames, basic operations <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Transformations vs Actions, lazy evaluation <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Reading data: CSV, JSON, Parquet <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Data transformations: select, filter, groupBy, agg <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Process large CSV file with PySpark (use public dataset) <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 13-14: ETL Script Development</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">ETL design patterns and best practices <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Logging: Python logging module, log levels <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Configuration management: config files, environment variables <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Convert your Ruby ETL to Python (or create new one): Extract from API/CSV → Transform → Load to PostgreSQL <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 3 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 3: AWS Cloud & Data Pipeline</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 15-16: AWS Fundamentals</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create AWS Free Tier account <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: IAM (users, roles, policies) - security best practices <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">S3: buckets, objects, versioning, lifecycle policies <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install AWS CLI, configure credentials <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Boto3 (AWS SDK for Python): upload/download files to S3 <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Create S3 bucket, upload dataset, set permissions <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 17-18: AWS Glue & Data Processing</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">AWS Glue: Data Catalog, Crawlers, Jobs <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Glue Crawler to catalog S3 data <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Write Glue ETL job using PySpark <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">AWS Athena: Query S3 data using SQL <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Run Athena queries on your S3 dataset <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 19-20: Lambda & Event-Driven Architecture</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">AWS Lambda basics: functions, triggers, execution <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Lambda function to process S3 events <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Lambda layers, environment variables, permissions <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Trigger Lambda on S3 upload to validate/transform data <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 21: Data Warehousing Basics</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: Data warehouse concepts (star schema, fact/dimension tables) <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">AWS Redshift OR Snowflake basics (choose one) <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Redshift/Snowflake trial account <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Design simple star schema for your project <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 4 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 4: Orchestration & Project Delivery</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 22-24: Apache Airflow</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install Airflow locally (or use Docker) <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Airflow concepts: DAGs, operators, tasks, dependencies <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create your first DAG: simple data pipeline <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Operators: PythonOperator, BashOperator, S3Operator <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Task dependencies, XCom for data passing <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Scheduling, retries, alerts <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 25-30: Final Project - Production ETL Pipeline</div>
+                        <div class="project-box">
+                            <h4>🎯 Project: End-to-End Data Pipeline</h4>
+                            <p><strong>Requirements:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Extract data from public API or generate sample data</li>
+                                <li>Upload raw data to S3</li>
+                                <li>Glue job: Clean, transform, partition data</li>
+                                <li>Load to Redshift/Snowflake (star schema)</li>
+                                <li>Orchestrate with Airflow</li>
+                                <li>Add logging, error handling, data quality checks</li>
+                                <li>Document in README with architecture diagram</li>
+                            </ul>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Design pipeline architecture and data model <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Implement data extraction from source <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build transformation logic with PySpark/Pandas <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Set up S3 buckets and Glue jobs <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create data warehouse tables and load data <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build Airflow DAG to orchestrate pipeline <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add logging, monitoring, and error handling <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Write comprehensive README with setup instructions <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create architecture diagram (use draw.io or Lucidchart) <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Push complete project to GitHub with proper structure <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Post project on LinkedIn with description and learnings <span class="task-time">(30 min)</span></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -309,40 +820,450 @@
                     <div class="phase-days">Days 31-60</div>
                 </div>
 
-                <div class="section">
-                    <div class="section-title">📚 Learn & Practice:</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">Vector Databases: Pinecone, Weaviate, Chroma</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">Embeddings & LLM APIs: OpenAI embeddings, Llama embeddings, Text chunking & preprocessing</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">LangChain or LlamaIndex for RAG pipelines</span>
-                        </li>
-                    </ul>
+                <div class="tip-box">
+                    <strong>💡 Goal:</strong> Master AI data pipelines, vector databases, and RAG systems. This phase unlocks the €75k-€110k salary range in Germany.
                 </div>
 
-                <div class="section">
-                    <div class="section-title">✅ Deliverables:</div>
-                    <ul class="task-list">
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">Build RAG Search Pipeline: PDFs → chunk → embeddings → vector DB → LLM query API</span>
-                        </li>
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">Vector DB pipeline pulling data from S3 or Postgres</span>
-                        </li>
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="2">
-                            <span class="task-text">A data-cleaning LLM pipeline</span>
-                        </li>
-                    </ul>
+                <!-- WEEK 5 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 5: LLM Fundamentals & APIs</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 31-32: Understanding LLMs</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Learn: How LLMs work (transformers, attention, tokens) - <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" class="resource-link">3Blue1Brown Video</a> <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">OpenAI API: GPT-4, GPT-3.5-turbo - setup and authentication <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">API basics: prompts, temperature, max_tokens, system messages <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build simple chatbot with OpenAI API <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Prompt engineering: techniques for better outputs <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 33-34: Embeddings Deep Dive</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">What are embeddings? Vector representations of text <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">OpenAI Embeddings API: text-embedding-ada-002 <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Alternative models: Sentence Transformers, Hugging Face models <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Similarity search: cosine similarity, dot product <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Generate embeddings for text corpus, find similar documents <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 35: Text Processing & Chunking</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Text preprocessing: cleaning, normalization <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Chunking strategies: fixed size, sentence-based, semantic <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Libraries: LangChain TextSplitter, tiktoken for token counting <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Chunk large documents optimally (1000-1500 tokens) <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 36-37: Document Processing</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">PDF extraction: PyPDF2, pdfplumber, PyMuPDF <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Extract text from various formats: DOCX, HTML, Markdown <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Handle tables, images, metadata <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build document ingestion pipeline for multiple formats <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 6 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 6: Vector Databases</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 38-39: Pinecone</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Pinecone account (free tier) <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Vector database concepts: indexes, namespaces, metadata <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Pinecone Python SDK: create index, upsert vectors <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Querying: similarity search, filtering with metadata <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Store 1000+ document embeddings in Pinecone <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 40: ChromaDB (Alternative)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install ChromaDB (local, open-source) <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Collections, documents, embeddings in Chroma <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Persistent storage vs in-memory <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Replicate Pinecone project in ChromaDB <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 41-42: Weaviate (Production-Grade)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Weaviate cloud account or Docker setup <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Schema design: classes, properties, vectorizers <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Hybrid search: vector + keyword search <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">GraphQL queries in Weaviate <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build searchable knowledge base with Weaviate <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 43-44: Vector DB Performance & Optimization</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Indexing strategies: HNSW, IVF, Product Quantization <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Batch operations for large-scale ingestion <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Metadata filtering for efficient queries <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Cost optimization: embedding caching, batch processing <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 7 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 7: RAG (Retrieval-Augmented Generation)</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 45-46: RAG Fundamentals</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">What is RAG? Architecture and use cases <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">RAG pipeline: Query → Retrieve → Augment → Generate <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">LangChain basics: chains, agents, memory <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Document loaders in LangChain <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build simple RAG: Load docs → Embed → Store → Query <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 47-48: LangChain Advanced</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">RetrievalQA chain with source documents <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Conversational RAG with memory <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Custom prompts and output parsers <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Multi-query retrieval for better results <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build Q&A system over your documentation <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 49: LlamaIndex (Alternative Framework)</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">LlamaIndex overview and comparison with LangChain <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Indexes: VectorStoreIndex, ListIndex, TreeIndex <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Query engines and response synthesizers <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build same RAG system with LlamaIndex <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 50-51: RAG Optimization</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Retrieval strategies: top-k, MMR, similarity threshold <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Re-ranking retrieved documents <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Context compression and relevance filtering <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Evaluation: answer relevance, faithfulness, context recall <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 8 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 8: Production RAG Projects</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 52-55: Project #2 - RAG Search Pipeline</div>
+                        <div class="project-box">
+                            <h4>🎯 Project: Production RAG System</h4>
+                            <p><strong>Build a searchable knowledge base:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Ingest 100+ PDF documents (use arxiv papers or company docs)</li>
+                                <li>Extract, chunk, and generate embeddings</li>
+                                <li>Store in Pinecone/Weaviate with metadata</li>
+                                <li>Build FastAPI backend for queries</li>
+                                <li>Implement RAG with LangChain</li>
+                                <li>Add source citations and confidence scores</li>
+                                <li>Simple web UI (Streamlit or Gradio)</li>
+                            </ul>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Set up project structure and dependencies <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build document ingestion pipeline (PDFs → chunks) <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Generate embeddings and store in vector DB <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Implement RAG query pipeline with LangChain <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build FastAPI endpoints (upload, query, health) <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Streamlit UI for user interaction <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add logging, error handling, and monitoring <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Write comprehensive documentation and README <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Push to GitHub with demo video/screenshots <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 56-58: Project #3 - LLM Data Cleaning Pipeline</div>
+                        <div class="project-box">
+                            <h4>🎯 Project: AI-Powered Data Quality Pipeline</h4>
+                            <p><strong>Use LLMs to clean and enrich data:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Extract data from messy sources (web scraping, APIs)</li>
+                                <li>Use LLM to standardize, categorize, extract entities</li>
+                                <li>Store cleaned data in PostgreSQL</li>
+                                <li>Compare before/after quality metrics</li>
+                                <li>Orchestrate with Airflow</li>
+                            </ul>
+                        </div>
+                        <ul class="task-list">
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Collect messy dataset (product descriptions, reviews, etc.) <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Design LLM prompts for data cleaning tasks <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build batch processing pipeline with rate limiting <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Implement entity extraction and categorization <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Store results in PostgreSQL with quality scores <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Airflow DAG for automation <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Generate quality report and visualizations <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Document and push to GitHub <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 59-60: S3 → Vector DB Pipeline</div>
+                        <ul class="task-list">
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Design pipeline: S3 bucket → Lambda trigger → Process → Vector DB <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Implement Lambda function for document processing <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Batch embedding generation and vector storage <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add error handling and retry logic <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Test end-to-end and document <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Post all 3 Phase 2 projects on LinkedIn <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -350,66 +1271,377 @@
             <div class="phase">
                 <div class="phase-header">
                     <div class="phase-number">3</div>
-                    <div class="phase-title">PHASE 3: MLOps + AI Pipelines</div>
+                    <div class="phase-title">PHASE 3: MLOps + Production AI Pipelines</div>
                     <div class="phase-days">Days 61-90</div>
                 </div>
 
-                <div class="section">
-                    <div class="section-title">📚 Learn:</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">MLflow for model tracking</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Databricks (VERY valuable in Germany)</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Docker for containerization</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">CI/CD with GitHub Actions</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Feature Stores (Feast or Tecton)</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Model monitoring</span>
-                        </li>
-                    </ul>
+                <div class="tip-box">
+                    <strong>💡 Goal:</strong> Master MLOps, containerization, and build portfolio-ready production AI systems. Position yourself for €85k-€125k roles in Germany.
                 </div>
 
-                <div class="section">
-                    <div class="section-title">✅ Deliverables:</div>
-                    <ul class="task-list">
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">End-to-End AI Data Pipeline: Ingest raw data → Clean + transform → Generate embeddings → Store in vector DB → Deploy RAG model → Track in MLflow</span>
-                        </li>
-                        <li class="task-item deliverable">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Post project on GitHub and LinkedIn</span>
-                        </li>
-                    </ul>
+                <!-- WEEK 9 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 9: Docker & Containerization</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 61-62: Docker Fundamentals</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install Docker Desktop, understand containers vs VMs <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Docker basics: images, containers, volumes, networks <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Dockerfile: FROM, RUN, COPY, CMD, ENTRYPOINT <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build and run Python application in Docker <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Docker Compose: multi-container applications <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Containerize FastAPI + PostgreSQL + Redis <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 63-64: MLflow Tracking & Experiments</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Install MLflow, understand experiment tracking <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Logging: parameters, metrics, artifacts, models <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">MLflow UI: compare runs, visualize metrics <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Model registry: register, version, stage transitions <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Track embedding model experiments (different models, chunk sizes) <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 65-66: Model Serving & APIs</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">MLflow model serving: local and cloud deployment <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Build production FastAPI with model inference <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add request validation, error handling, rate limiting <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">API documentation with Swagger/OpenAPI <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Deploy RAG model as REST API <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 67: Monitoring & Logging</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Application logging: structured logs, log levels <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Metrics: latency, throughput, error rates <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Prometheus + Grafana basics (optional but valuable) <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Add comprehensive logging to your APIs <span class="task-time">(1 hr)</span></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="section">
-                    <div class="section-title">📝 Resume Updates:</div>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Update Resume Title: "AI Data Engineer | Data Engineer | MLOps | LLM Pipelines"</span>
-                        </li>
-                        <li class="task-item">
-                            <input type="checkbox" class="task-checkbox" data-phase="3">
-                            <span class="task-text">Add keywords: "RAG Pipelines", "Vector Databases", "ML Data Pipelines", "LLM-integrated ETL", "Data Engineering for Generative AI"</span>
-                        </li>
-                    </ul>
+                <!-- WEEK 10 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 10: CI/CD & Databricks</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 68-69: GitHub Actions CI/CD</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">GitHub Actions basics: workflows, jobs, steps <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">CI pipeline: linting, testing, building <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">CD pipeline: Docker build and push to registry <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Secrets management in GitHub Actions <span class="task-time">(1 hr)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Set up CI/CD for one of your projects <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 70-72: Databricks Essentials</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Create Databricks Community Edition account <span class="task-time">(30 min)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Databricks workspace: notebooks, clusters, jobs <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Delta Lake: ACID transactions, time travel, schema evolution <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Databricks workflows: job scheduling and orchestration <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Unity Catalog: data governance (overview) <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Build ETL pipeline in Databricks with Delta tables <span class="task-time">(4 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <div class="day-header">Day 73-74: Feature Stores</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">What are feature stores? Use cases and benefits <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Feast (open-source): setup and configuration <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Define features, entities, and feature views <span class="task-time">(2 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Online vs offline feature stores <span class="task-time">(1.5 hrs)</span></span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice: Create feature store for user/product features <span class="task-time">(3 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WEEK 11 -->
+                <div class="week">
+                    <div class="week-header">📅 Week 11-12: Capstone Project - Production AI Pipeline</div>
+                    
+                    <div class="day">
+                        <div class="day-header">Day 75-90: Final Capstone Project</div>
+                        <div class="project-box">
+                            <h4>🎯 Capstone: End-to-End Production AI Data Pipeline</h4>
+                            <p><strong>Build a complete, production-ready system:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Data Ingestion:</strong> Multi-source (APIs, S3, databases)</li>
+                                <li><strong>Processing:</strong> Clean, transform, generate embeddings</li>
+                                <li><strong>Storage:</strong> Delta Lake + Vector DB (Pinecone/Weaviate)</li>
+                                <li><strong>AI Model:</strong> RAG system with source attribution</li>
+                                <li><strong>API:</strong> FastAPI with authentication and rate limiting</li>
+                                <li><strong>MLOps:</strong> MLflow tracking, model versioning</li>
+                                <li><strong>Orchestration:</strong> Airflow DAGs for automation</li>
+                                <li><strong>Infrastructure:</strong> Dockerized, CI/CD with GitHub Actions</li>
+                                <li><strong>Monitoring:</strong> Logging, metrics, alerts</li>
+                                <li><strong>Documentation:</strong> Architecture diagrams, API docs, setup guide</li>
+                            </ul>
+                        </div>
+                        
+                        <ul class="task-list">
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 75-76: Project planning - architecture design, tech stack selection, data sources <span class="task-time">(8 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 77-78: Data ingestion layer - multi-source connectors, validation, error handling <span class="task-time">(10 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 79-80: Data processing - PySpark transformations, data quality checks, Delta Lake setup <span class="task-time">(10 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 81-82: Embedding generation - batch processing, caching, vector DB integration <span class="task-time">(10 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 83-84: RAG implementation - LangChain/LlamaIndex, retrieval optimization, response generation <span class="task-time">(10 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 85: FastAPI development - endpoints, authentication, validation, documentation <span class="task-time">(6 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 86: MLflow integration - experiment tracking, model registry, versioning <span class="task-time">(5 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 87: Airflow orchestration - DAGs for all pipeline stages, scheduling, monitoring <span class="task-time">(6 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 88: Dockerization & CI/CD - Dockerfile, docker-compose, GitHub Actions workflows <span class="task-time">(6 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 89: Monitoring & logging - structured logs, metrics collection, dashboards <span class="task-time">(5 hrs)</span></span>
+                            </li>
+                            <li class="task-item deliverable">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Day 90: Documentation & deployment - README, architecture diagrams, demo video, LinkedIn post <span class="task-time">(6 hrs)</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Resume & Job Search -->
+                <div class="week">
+                    <div class="week-header">📝 Career Positioning (Parallel to Days 75-90)</div>
+                    
+                    <div class="section">
+                        <div class="section-title">Resume Updates</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Update resume title: "AI Data Engineer | MLOps | LLM Pipelines"</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add keywords: RAG Pipelines, Vector Databases, ML Data Pipelines, LLM-integrated ETL, Data Engineering for Generative AI</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">List all 4 projects with tech stacks and outcomes</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Highlight: Python, PySpark, AWS, Airflow, LangChain, Pinecone, MLflow, Docker, FastAPI</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">LinkedIn Profile</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Update headline with AI/ML keywords</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Write compelling "About" section highlighting AI DE skills</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Post all 4 projects with descriptions and GitHub links</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Add certifications (if completed any courses)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Connect with German AI/Data professionals and recruiters</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Job Applications</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Apply to 5 companies in NRW (Deutsche Telekom, DHL, Bayer, Bosch, Adesso)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Apply to 5 Berlin AI startups (Merantix, Zalando, HelloFresh, etc.)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Apply to 5 Munich companies (BMW, Siemens, Celonis, etc.)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Set up job alerts on LinkedIn, Indeed, StepStone for "AI Data Engineer Germany"</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Interview Preparation</div>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Practice explaining your projects (STAR method)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Review Python/SQL coding questions (LeetCode Medium)</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Prepare answers for: "Why AI Data Engineering?", "Describe your RAG pipeline", "How do you handle data quality?"</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span class="task-text">Study system design: design a scalable RAG system, design an ETL pipeline</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -467,8 +1699,9 @@
         // Load saved progress from localStorage
         function loadProgress() {
             const checkboxes = document.querySelectorAll('.task-checkbox');
-            checkboxes.forEach(checkbox => {
-                const saved = localStorage.getItem(checkbox.closest('.task-item').textContent.trim());
+            checkboxes.forEach((checkbox, index) => {
+                const key = `task_${index}`;
+                const saved = localStorage.getItem(key);
                 if (saved === 'true') {
                     checkbox.checked = true;
                     checkbox.closest('.task-item').classList.add('completed');
@@ -478,9 +1711,9 @@
         }
 
         // Save progress to localStorage
-        function saveProgress(checkbox) {
-            const taskText = checkbox.closest('.task-item').textContent.trim();
-            localStorage.setItem(taskText, checkbox.checked);
+        function saveProgress(checkbox, index) {
+            const key = `task_${index}`;
+            localStorage.setItem(key, checkbox.checked);
             updateProgress();
         }
 
@@ -493,11 +1726,71 @@
             
             const progressFill = document.getElementById('progressFill');
             progressFill.style.width = percentage + '%';
-            progressFill.textContent = percentage + '%';
+            progressFill.textContent = `${percentage}% (${completed}/${total} tasks)`;
+        }
+
+        // Export progress to JSON file
+        function exportProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const progress = {};
+            checkboxes.forEach((checkbox, index) => {
+                const taskText = checkbox.closest('.task-item').querySelector('.task-text').textContent.trim();
+                progress[`task_${index}`] = {
+                    checked: checkbox.checked,
+                    text: taskText
+                };
+            });
+            
+            const dataStr = JSON.stringify(progress, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `roadmap-progress-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Import progress from JSON file
+        function importProgress() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const progress = JSON.parse(event.target.result);
+                        Object.keys(progress).forEach(key => {
+                            localStorage.setItem(key, progress[key].checked);
+                        });
+                        loadProgress();
+                        alert('Progress imported successfully!');
+                    } catch (error) {
+                        alert('Error importing progress. Please check the file format.');
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        // Reset all progress
+        function resetProgress() {
+            if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+                localStorage.clear();
+                document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.checked = false;
+                    checkbox.closest('.task-item').classList.remove('completed');
+                });
+                updateProgress();
+                alert('Progress reset successfully!');
+            }
         }
 
         // Add event listeners to all checkboxes
-        document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+        document.querySelectorAll('.task-checkbox').forEach((checkbox, index) => {
             checkbox.addEventListener('change', function() {
                 const taskItem = this.closest('.task-item');
                 if (this.checked) {
@@ -505,12 +1798,15 @@
                 } else {
                     taskItem.classList.remove('completed');
                 }
-                saveProgress(this);
+                saveProgress(this, index);
             });
         });
 
         // Initialize on page load
         loadProgress();
+
+        // Update progress every 30 seconds (in case multiple tabs open)
+        setInterval(loadProgress, 30000);
     </script>
 </body>
 </html>
