@@ -399,15 +399,6 @@
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Practice: Solve 5 basic problems on HackerRank/LeetCode <span class="task-time">(1 hr)</span></span>
                             </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python: Getting started with Python Language <span class="task-time">(1 hr)</span></span>
-                            </li>
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.1: Getting Started <span class="task-time">(1 hr)</span></span>
-                            </li>
                         </ul>
                     </div>
 
@@ -430,15 +421,6 @@
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Practice: Write 3 utility functions (data parsing, validation, transformation) <span class="task-time">(1.5 hrs)</span></span>
                             </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.2: Creating variables and assigning values <span class="task-time">(1 hr)</span></span>
-                            </li>
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.3: Block Indentation <span class="task-time">(1 hr)</span></span>
-                            </li>
                         </ul>
                     </div>
 
@@ -460,15 +442,6 @@
                             <li class="task-item">
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Mini-project: Build a CSV to JSON converter with data validation <span class="task-time">(2 hrs)</span></span>
-                            </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.4: Datatypes <span class="task-time">(1 hr)</span></span>
-                            </li>
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.5: Collection Types <span class="task-time">(1 hr)</span></span>
                             </li>
                         </ul>
                     </div>
@@ -500,15 +473,6 @@
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Practice: Clean a messy dataset (Kaggle) - handle missing values, outliers <span class="task-time">(2 hrs)</span></span>
                             </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.6: IDLE - Python GUI <span class="task-time">(1 hr)</span></span>
-                            </li>
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.7: User Input <span class="task-time">(1 hr)</span></span>
-                            </li>
                         </ul>
                     </div>
 
@@ -534,15 +498,6 @@
                             <li class="task-item deliverable">
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Mini-project: Analyze sales data - aggregations, joins, pivot tables. Push to GitHub <span class="task-time">(3 hrs)</span></span>
-                            </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.8: Built in Modules and Functions <span class="task-time">(1 hr)</span></span>
-                            </li>
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.9: Creating a module <span class="task-time">(1 hr)</span></span>
                             </li>
                         </ul>
                     </div>
@@ -575,11 +530,6 @@
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Practice: Solve 10 SQL problems on LeetCode/HackerRank (Medium level) <span class="task-time">(3 hrs)</span></span>
                             </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study MySQL: Getting started with MySQL <span class="task-time">(1 hr)</span></span>
-                            </li>
                         </ul>
                     </div>
 
@@ -601,11 +551,6 @@
                             <li class="task-item">
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Practice: Load CSV to PostgreSQL, run queries, export results <span class="task-time">(2 hrs)</span></span>
-                            </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study Python Section 1.10: Installation of Python <span class="task-time">(1 hr)</span></span>
                             </li>
                         </ul>
                     </div>
@@ -1287,11 +1232,6 @@
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Document and push to GitHub <span class="task-time">(1 hr)</span></span>
                             </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study PostgreSQL: Getting started with PostgreSQL <span class="task-time">(1 hr)</span></span>
-                            </li>
                         </ul>
                     </div>
 
@@ -1602,11 +1542,6 @@
                             <li class="task-item deliverable">
                                 <input type="checkbox" class="task-checkbox">
                                 <span class="task-text">Day 90: Documentation & deployment - README, architecture diagrams, demo video, LinkedIn post <span class="task-time">(6 hrs)</span></span>
-                            </li>
-                        
-                            <li class="task-item">
-                                <input type="checkbox" class="task-checkbox">
-                                <span class="task-text">Study MySQL Section 1.1: Getting Started <span class="task-time">(1 hr)</span></span>
                             </li>
                         </ul>
                     </div>
